@@ -22,7 +22,7 @@ simulated_data = {
     'Humidity': np.random.uniform(40, 95, size=data_size)      # DHT11 Humidity ranges
 }
 
-df = pd.DataFrame(simulated_data);
+df = pd.DataFrame(simulated_data)
 
 # Empirical standard formulation to approximate real-world environmental AQI response curves
 df['AQI'] = (df['PM2.5'] * 1.6) + (df['CO2'] * 0.04) + (df['Temperature'] * 0.25) + np.random.normal(0, 4, size=data_size)
@@ -83,4 +83,4 @@ plt.ylabel('Predicted AQI Values')
 plt.title(f'Support Vector Regression (SVR) Performance\n(MAE: {mae_svr:.2f}, R²: {r2_svr:.2f})')
 
 plt.tight_layout()
-plt.show()
+plt.close()
